@@ -4,7 +4,7 @@ class Game {
     this.wraper = document.getElementById('app');
     this.calcMoves = 0;
     this.gameTime=0;
-    this.gameDifficut = 3;
+    this.gameDifficut = JSON.parse(window.localStorage.getItem('gameDifficut')) || 3;
     this.gameStatistics = JSON.parse(window.localStorage.getItem('gameStatistics')) || 
       [{ difficut: 3, moves: 0, time: 0 }, 
       { difficut: 4, moves: 0, time: 0 }, 
@@ -72,13 +72,10 @@ class Game {
             canMove = true;
           } 
           element.prepend(this.createRing(item,spindle.name, canMove));
-        } 
-        
-      }
-      
+        }        
+      }     
       this.wraper.appendChild(element);
-    }
-    
+    }   
   }
 
   createRing(index, spindle, canMove){
@@ -194,7 +191,7 @@ class Game {
     let rengeDiff = document.createElement("input");
     rengeDiff.setAttribute("class", 'range-slider');
     rengeDiff.setAttribute("type", 'range');
-    rengeDiff.setAttribute("value",  "3");
+    rengeDiff.setAttribute("value",  this.gameDifficut);
     rengeDiff.setAttribute("min", "3"); 
     rengeDiff.setAttribute("max", "8");
     rengeDiff.addEventListener('input', function (e) {
@@ -214,7 +211,7 @@ class Game {
         this.calcMoves = 0;
         this.gameTime = 0;
       }
-     
+     window.localStorage.setItem('gameDifficut', JSON.stringify(this.gameDifficut));
       this.gameTimer();
         this.render();
     }.bind(this));

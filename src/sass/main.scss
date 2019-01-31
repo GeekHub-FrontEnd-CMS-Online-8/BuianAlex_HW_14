@@ -8,13 +8,17 @@ body{
   margin: 0;
   padding: 0;
   font-family:  sans-serif;
+  position: relative;
 }
 #app{
   display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   justify-content: space-between;
   align-items: flex-end;
-  width: 100vw;
-  height: 100vh;
+  width: 1024px;
+  height: 600px;
   background-color: #EBF7E3;
 }
 .game-bar{
@@ -48,35 +52,35 @@ li{
 }  
   
 .ring-1{
-    width: 100%;
+    width: 300px;
     background-color: Brown;
   }
   .ring-2{
-    width: 90%;
+    width:270px;
     background-color: Red;
   }
   .ring-3{
-    width: 80%;
+    width: 240px;
     background-color: Orange;
   }
   .ring-4{
-    width: 70%;
+    width: 180px;
     background-color: Yellow;
   }
   .ring-5{
-    width: 60%;
+    width: 150px;
     background-color: Green;
   }
   .ring-6{
-    width:50%;
+    width:120px;
     background-color: Blue;
   }
   .ring-7{
-    width: 40%;
+    width: 90px;
     background-color: Gray;
   }
   .ring-8{
-    width: 30%;
+    width: 60px;
     background-color: purple;
   }
 
@@ -212,6 +216,7 @@ input[type=range]:focus::-ms-fill-upper {
     margin: 2rem auto;
     padding: 0.5rem 3rem;
     font-size: 32px;
+    font-weight: bold;
     border-radius: 36px;
     border: none;
     outline: none;
