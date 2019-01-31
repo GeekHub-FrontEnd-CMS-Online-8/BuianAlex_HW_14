@@ -141,7 +141,9 @@ class Game {
   dragStart(e) {
     e.dataTransfer.setData('text', this.getAttribute('data')); 
     e.dataTransfer.setData('spindleNumb', this.getAttribute('spindleNumb'));
+    this.style.opacity = '0.4';
   }
+  
   dragEnd(e) {
 
   }
@@ -257,6 +259,7 @@ class Game {
       let btnStart = document.createElement("button");
       btnStart.textContent = "Start again";
       btnStart.addEventListener('click', function (e) {
+        startWraper.remove(); 
         this.startScreen();
       }.bind(this));
       startWraper.appendChild(btnStart);
